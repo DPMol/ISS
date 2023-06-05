@@ -1,0 +1,35 @@
+/* Reset default margin and padding */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set height of the root element to full viewport height */
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Center content vertically and horizontally */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+/* Apply global styles for links */
+a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Add any additional global styles as needed */

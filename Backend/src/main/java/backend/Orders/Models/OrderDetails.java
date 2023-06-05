@@ -2,9 +2,7 @@ package backend.Orders.Models;
 
 import backend.Domain.Medicine;
 import backend.Domain.Order;
-import backend.Domain.User;
-import backend.Medicines.Models.MedicineDetails;
-import jakarta.persistence.*;
+import backend.Domain.Section;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -18,14 +16,14 @@ import java.util.List;
 @EqualsAndHashCode
 public class OrderDetails {
     private int id;
-    private User createdBy;
+    private String createdBy;
     private LocalDateTime date;
     private int quantity;
     private Medicine medicine;
-    private Boolean isActive;
+    private Section section;
 
     public static OrderDetails FromOrder(Order order){
-        return new OrderDetails(order.getId(), order.getCreatedBy(), order.getDate(), order.getQuantity(), order.getMedicine(), order.getIsActive());
+        return new OrderDetails(order.getId(), order.getCreatedBy().getUsername(), order.getDate(), order.getQuantity(), order.getMedicine(), order.getSection());
     }
 
     public static List<OrderDetails> FromOrder(List<Order> orders){

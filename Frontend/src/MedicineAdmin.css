@@ -1,0 +1,46 @@
+.medicine-list-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.medicine-list-content {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.medicine-list-content h2 {
+  margin-top: 0;
+}
+
+.medicine-form {
+  margin-bottom: 20px;
+}
+
+.medicine-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.medicine-table th,
+.medicine-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.medicine-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.medicine-table tbody tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}

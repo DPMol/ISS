@@ -16,9 +16,13 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 public class Medicine {
     @Id
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "id", unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "name", nullable = false)
     private String name;
+
+    public Medicine(String name){
+        this.name = name;
+    }
 }

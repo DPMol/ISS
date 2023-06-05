@@ -30,5 +30,16 @@ public class Order {
     @JoinColumn(name = "medicineId", nullable = false)
     private Medicine medicine;
     @Column(name = "isActive")
-    private Boolean isActive;
+    private Boolean isActive = true;
+    @ManyToOne
+    @JoinColumn(name = "sectionId", nullable = false)
+    private Section section;
+
+    public Order(User user, int quantity, Medicine medicine){
+        this.createdBy = user;
+        this.quantity = quantity;
+        this.medicine = medicine;
+        this.date = LocalDateTime.now();
+        this.section = user.getSection();
+    }
 }

@@ -1,7 +1,7 @@
-package backend.Orders.Requests;
+package backend.Medicines.MedicineRequests;
 
 import backend.Infrastructure.AbstractClasses.AbstractRequest;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllOrdersRequest extends AbstractRequest {
-    @NotNull
-    private int sectionId;
+public class CreateMedicineRequest extends AbstractRequest {
+    @NotBlank
+    private String name;
 }

@@ -2,16 +2,10 @@ package backend.Users;
 
 import backend.Infrastructure.AbstractClasses.AbstractController;
 import backend.Users.Models.UserDetails;
-import backend.Users.UserRequests.DeleteUserRequest;
-import backend.Users.UserRequests.GetUserDetailsRequest;
-import backend.Users.UserRequests.LoginUserRequest;
-import backend.Users.UserRequests.RegisterUserRequest;
+import backend.Users.UserRequests.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
@@ -19,13 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController extends AbstractController {
     UserService userService;
 
+    @CrossOrigin
     @PostMapping("/login")
     public UserDetails login(@Valid @RequestBody LoginUserRequest request){
         return userService.handle(request);
     }
 
-    @PostMapping("/getuserdetails")
-    public UserDetails getUserDetails(@Valid @RequestBody GetUserDetailsRequest request){
-        return userService.handle(request);
+    @CrossOrigin
+    @GetMapping("/getuserdetails")
+    public UserDetails getUserDetails(@Valid @RequestParam(name = "username") String username){
+        return userService.handle(new GetUserDetailsRequest(username));
+    }
+
+    @CrossOrigin
+    @PostMapping("/updatesection")
+    public void login(@Valid @RequestBody UpdateUserSectionRequest request){
+        userService.handle(request);
     }
 }
