@@ -75,8 +75,12 @@ const OrderList: React.FC<OrderListProps> = ({ user0 }) => {
     if (selectedOrder) {
       const orderId = selectedOrder.id;
 
-      fetch(`http://localhost:8080/order/honor?id=${orderId}`, {
+      fetch(`http://localhost:8080/order/honor`, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ orderId: orderId }),
       })
         .then(response => {
           if (response.ok) {
@@ -86,6 +90,7 @@ const OrderList: React.FC<OrderListProps> = ({ user0 }) => {
             console.error('Error honoring order:', response.statusText);
             // Handle error condition if needed
           }
+          fetchOrderList();
         })
         .catch(error => {
           console.error('Error honoring order:', error);
